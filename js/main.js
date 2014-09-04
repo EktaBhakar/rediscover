@@ -3,25 +3,27 @@ var lat,lon;
 $(document).ready(function(){
 getLocation();
 initialize();
-$('#shopping').hide();
+$('.shop').hide();
+$('.travel').hide();
+$('.food').hide();
+$('.ent').hide();
 $('#overlay').click(function(){
 $('#popup').hide();    
-$('#overlay').hide();  
+$('#overlay').hide(); 
 
 });
 
 $('header').click(function(){
         homesweethome();
     });
-    $('.shop').click(function(){
-    $('#category').hide();
-    $("#popup").hide();
-    $('#map').hide();
-	$('#shopping').show();
-    });
-	
-	$('#shopping section').click(function(){
-    $('#shopping').hide();
+});
+    
+/*	
+	$('.shop').click(function(){
+    $('.shop').hide();
+	$('.travel').hide();
+$('.food').hide();
+$('.ent').hide();
     $("#popup").hide();
 	$('#category').hide();
 	$('#map').show();
@@ -29,8 +31,62 @@ $('header').click(function(){
     window.localStorage.setItem('currentcat',tabs);
     initialize(tabs);
     });
-});
+});*/
 
+function check(){
+	$('.shop').hide();
+$('.travel').hide();
+$('.food').hide();
+$('.ent').hide();
+    $("#popup").hide();
+	$('#category').hide();
+	$('#map').show();
+    tabs=$(this).data('title');
+    window.localStorage.setItem('currentcat',tabs);
+    initialize(tabs);
+    
+	}
+/*
+$('.travel').click(function(){
+    $('.shop').hide();
+$('.travel').hide();
+$('.food').hide();
+$('.ent').hide();
+    $("#popup").hide();
+	$('#category').hide();
+	$('#map').show();
+    tabs=$(this).data('title');
+    window.localStorage.setItem('currentcat',tabs);
+    initialize(tabs);
+    });
+
+$('.food').click(function(){
+    $('.shop').hide();
+$('.travel').hide();
+$('.food').hide();
+$('.ent').hide();
+$("#popup").hide();
+	$('#category').hide();
+	$('#map').show();
+    tabs=$(this).data('title');
+    window.localStorage.setItem('currentcat',tabs);
+    initialize(tabs);
+    });
+	
+	$('.ent').click(function(){
+    $('.shop').hide();
+$('.travel').hide();
+$('.food').hide();
+$('.ent').hide();
+    $("#popup").hide();
+	$('#category').hide();
+	$('#map').show();
+    tabs=$(this).data('title');
+    window.localStorage.setItem('currentcat',tabs);
+    initialize(tabs);
+    });
+
+*/
 
 
 /*
@@ -45,7 +101,7 @@ $('header').click(function(){
     window.localStorage.setItem('currentcat',tabs);
     initialize(tabs);
     });
-});*/
+*/
 
 
 
@@ -54,7 +110,11 @@ $('header').click(function(){
 
 function homesweethome(){
 $('[data-role="page"]').hide();
-$('#homepage').slideDown();
+$('#category').slideDown();
+$('.shop').hide();
+$('.travel').hide();
+$('.food').hide();
+$('.ent').hide();
 }
 
 
@@ -125,3 +185,23 @@ function showPosition(position)
   lat=position.coords.latitude;
   lon=position.coords.longitude;
   }
+  
+  function shop(){
+	  $('.shop').show();
+	  $('.activepage').hide();
+	  }
+	  
+ function travel(){
+	  $('.travel').show();
+	  $('.activepage').hide();
+	  }
+	  
+	  function food(){
+	  $('.food').show();
+	  $('.activepage').hide();
+	  }
+	  
+	  function ent(){
+	  $('.ent').show();
+	  $('.activepage').hide();
+	  }
